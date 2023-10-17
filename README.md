@@ -78,10 +78,10 @@ Before running the application, make sure you have the following installed:
    - Wait for the results to appear on the server machine. The collaborative "Fish Detection" project will process the uploaded image and display the results on the server.
 
 
-<span style="color: red;">If there are any problems when running `server.py` or `client.py`, try to change the socket port and don't forget to change the server's IP address in `client.py`. 
- <span>
+<span style="color: red;">If there are any problems when running `server.py` or `client.py`, try to change the socket port and don't forget to change the server's IP address in `client.py`.<span>
 
-## Setup
+## Project Phases
+
 
 To set up this collaborative fish detection system, follow these steps:
 
