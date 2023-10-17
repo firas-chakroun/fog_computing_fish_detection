@@ -15,16 +15,16 @@ This project is a collaborative fog node-based fish detection system. It leverag
 ### Server
 
 - RAM: 8
-- Processor: i5 10th gen
+- Processor: i5 10éme gen
 
 ### Client 1
 
-- RAM: 
-- Processor:
+- RAM: 8
+- Processor: i5 10éme gen
 ### Client 2
 
-- RAM: 
-- Processor: 
+- RAM: 16
+- Processor: i3 11éme gen
 
 ## Prerequisites
 
@@ -33,18 +33,54 @@ Before running the application, make sure you have the following installed:
 - Python 3.x
 - Flask
 - Pillow (PIL)
+- tqdm
 - [Roboflow](https://roboflow.com/) (for machine learning model predictions)
 - A machine learning model for image processing (used in the `server.py` script)
 
 ## Usage
 
-1. Clone the repository server to your local machine and your c.
+1. **Clone the Repository**:
+   - On your local machine, clone this main repository:
+     ```bash
+      git clone https://github.com/firas-chakroun/fog_computing_fish_detection.git
+     ```
+   - On other machines, clone the client repositories accordingly:
+     
 
-2. Install the required Python libraries using `pip`:
+2. **Install Dependencies**:
+   - Open your terminal in the project directory and install the required Python libraries using `pip`:
+     ```bash
+     pip install flask pillow roboflow tqdm
+     ```
 
-   ```bash
-   pip install flask pillow roboflow
-   
+3. **Start the Server**:
+   - Activate the Flask server by running the following command:
+     ```bash
+     python server/app.py
+     ```
+
+4. **Access the Web Interface**:
+   - After the server is active, open a web browser and navigate to `localhost:5000`.
+
+5. **Upload an Image**:
+   - You can upload an image on the main page.
+
+6. **Run the Clients**:
+   - On the other machines, activate both client applications by running the following command on each machine:
+     ```bash
+     python client1/client.py
+     ```
+     ```bash
+     python client2/client.py
+     ```
+    
+7. **Get Results**:
+   - Wait for the results to appear on the server machine. The collaborative "Fish Detection" project will process the uploaded image and display the results on the server.
+
+
+<span style="color: red;">If there are any problems when running `server.py` or `client.py`, try to change the socket port and don't forget to change the server's IP address in `client.py`. 
+ <span>
+
 ## Setup
 
 To set up this collaborative fish detection system, follow these steps:
@@ -68,28 +104,21 @@ The server initializes another socket to accept images from the clients after th
 ### 5. Flask Integration
 
 After receiving the images and bounding boxes, install Flask and create Flask functionalities. Create a home page where users can upload an image. When an image is uploaded, the server will activate and wait for the clients to process it.
-
+![Upload Image](screenshots/upload_image.png)
 ### 6. Displaying Results
 
 Once the processing is completed by both clients, the results are displayed
+![Received Image](screenshots/received_images.png)
 
-## Performance Comparison
+## Performance & time Comparison
 
 To evaluate the performance of this collaborative fish detection system, a comparison of execution times is conducted. A second server is introduced to perform fish detection in a traditional, non-distributed manner. The execution times of both servers are compared to determine the efficiency of the collaborative approach.
 
-## Time Comparison
-
-We also added a second server that performs fish detection in a traditional, non-distributed manner. We will compare the processing times between the two servers. Below is a comparison table:
-
 | Server Type                    | Processing Time |
 | ------------------------------ | --------------- |
-| Collaborative Fog Nodes Server |30s              |
-| Non-Distributed Server         |20s              |
+| Collaborative Fog Nodes Server |32s              |
+| Non-Distributed Server         |35s              |
 
 ## Conclusion
 
-In conclusion, this project showcases the power of collaborative fog nodes for efficient fish detection. The collaborative approach leverages distributed processing, making it potentially faster and more efficient than traditional methods. The comparison of execution times provides insights into the system's performance.
-
-If the collaborative approach proves to be faster and more efficient, it could open up possibilities for faster data processing and interpretation. This project serves as a practical example of distributed computing for image recognition tasks.
-
-Feel free to adapt and customize this project for your specific use case. Happy coding!
+In conclusion, this project showcases the power of collaborative fog nodes for efficient fish detection. The collaborative approach leverages distributed processing, making it potentially faster and more efficient than traditional methods. The comparison of execution times provides insights into the system's performance.This project serves as a practical example of distributed computing for image recognition tasks.
